@@ -99,8 +99,14 @@ This anonymous function should accept up to three arguments: the element, the in
 
 const removeWithAnon = (arr) => {
   // Solution code here...
+  arr.forEach(anonymousFun(element, index, arr));
+  return arr;
 };
-
+function anonymousFun(element, index, arr) {
+    if (element % 3 === 2) {
+      arr.pop();
+  }
+}
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
 
@@ -117,9 +123,13 @@ The inventory is formatted like this:
 
 This function should use forEach to populate your grocery list based on the store's inventory. If the item is available, add it to your list. Return the final list.
 ------------------------------------------------------------------------------------------------ */
-
+//https://www.youtube.com/watch?v=KUY8VTrMqsE
 const createList = (availableItems) => {
   // Solution code here...
+
+let availableFilter= availableItems.filter(item=>item.available=true)
+let finalList=availableFilter.map((item) => item.name);
+return finalList;
 };
 
 /* ------------------------------------------------------------------------------------------------
