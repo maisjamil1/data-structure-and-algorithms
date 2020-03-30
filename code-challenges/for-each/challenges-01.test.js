@@ -37,10 +37,15 @@ Return the modified array.
 
 const addValues = (arr, value) => {
   // Solution code here...
+  arr.push(value);
 };
 
 const addNumbers = (num, arr, times, callback) => {
   // Solution code here...
+  for(let i=0;i<times;i++){
+    callback(arr,num);
+  }
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -55,12 +60,17 @@ Then, write a function named removeElements that takes in an array and a callbac
 Return the modified array.
 ------------------------------------------------------------------------------------------------ */
 
-const removeOne = (num, arr) => {
-  // Solution code here...
+const removeOne = (number$, array$) => {
+  if (number$ % 3 === 2) {
+    array$.pop();
+  }
 };
+const removeElements = (array$2, callback) => {
+  for (let i = 0; i < array$2.length; i++) {
+    callback(array$2[i], array$2);
 
-const removeElements = (arr, callback) => {
-  // Solution code here...
+  }
+  return array$2;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -71,6 +81,10 @@ Write a function named removeWithForEach that produces the same output as challe
 
 const removeWithForEach = (arr, callback) => {
   // Solution code here...
+  arr.forEach(function(value){
+    callback(value,arr);
+  })
+  return arr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -85,8 +99,14 @@ This anonymous function should accept up to three arguments: the element, the in
 
 const removeWithAnon = (arr) => {
   // Solution code here...
+  arr.forEach(anonymousFun(element, index, arr));
+  return arr;
 };
-
+function anonymousFun(element, index, arr) {
+    if (element % 3 === 2) {
+      arr.pop();
+  }
+}
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
 
@@ -103,9 +123,13 @@ The inventory is formatted like this:
 
 This function should use forEach to populate your grocery list based on the store's inventory. If the item is available, add it to your list. Return the final list.
 ------------------------------------------------------------------------------------------------ */
-
+//https://www.youtube.com/watch?v=KUY8VTrMqsE
 const createList = (availableItems) => {
   // Solution code here...
+
+let availableFilter= availableItems.filter(item=>item.available=true)
+let finalList=availableFilter.map((item) => item.name);
+return finalList;
 };
 
 /* ------------------------------------------------------------------------------------------------
