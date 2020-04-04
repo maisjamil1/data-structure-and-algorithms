@@ -32,7 +32,7 @@ For example, wordsToCharList('gregor') returns ['g','r','e','g','o','r'].
 
 const wordsToCharList = (arr) => {
   // Solution code here...
-  let CharList = arr.split(' ');
+  let CharList = arr.split('');
   return CharList;
 
 };
@@ -80,12 +80,25 @@ const gruffaloCrumble = {
 };
 
 
-const listFoods = (recipe) => {
+const listFoods = (gruffaloCrumble) => {
   let result = [];
   // Solution code here...
-  return result;
-};
 
+  let ingredients$ = gruffaloCrumble.ingredients;
+
+  console.log(ingredients$);
+  for (let i = 0; i < ingredients$.length; i++) {
+    item=ingredients$[i].slice(" ");
+    itemName=item.slice(2,4);
+    result.push(itemName);
+    console.log('rr',result);
+  }
+ 
+  console.log('return',result)
+  return result;
+
+};
+// listFoods(gruffaloCrumble);
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
 
@@ -94,12 +107,24 @@ Write a function named splitFoods that uses split to produce the same output as 
 You may also use other string or array methods.
 ------------------------------------------------------------------------------------------------ */
 
-const splitFoods = (recipe) => {
+const splitFoods = (gruffaloCrumble) => {
   let result = [];
   // Solution code here...
-  return result;
-};
 
+  let ingredients$ = gruffaloCrumble.ingredients;
+
+  console.log(ingredients$);
+  for (let i = 0; i < ingredients$.length; i++) {
+    item=ingredients$[i].split(' ');
+    itemName=item.slice(2,4);
+    console.log('rr',result);
+    result.push(itemName);
+  }
+ 
+  console.log('return',result)
+  return result;
+
+};
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
 
@@ -109,13 +134,16 @@ Write a function named stepAction that takes in the recipe and extracts the acti
 
 Return a new array containing just the verbs. For example, ['Mix until evenly distributed'] returns ['Mix'].
 ------------------------------------------------------------------------------------------------ */
-
 const stepActions = (recipe) => {
   let result = [];
   // Solution code here...
+  let recipeStep = recipe.steps;
+  recipeStep.forEach(items => {
+    result.push(items.split(' ')[0]);
+  })
   return result;
 };
-
+// stepActions(gruffaloCrumble);
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
 
