@@ -84,20 +84,23 @@ const listFoods = (gruffaloCrumble) => {
   let result = [];
   // Solution code here...
 
-  let ingredients$ = gruffaloCrumble.ingredients;
+//   let ingredients$ = gruffaloCrumble.ingredients;
 
-  console.log(ingredients$);
-  for (let i = 0; i < ingredients$.length; i++) {
-    item=ingredients$[i].slice(" ");
-    itemName=item.slice(2,4);
-    result.push(itemName);
-    console.log('rr',result);
-  }
+//   console.log(ingredients$);
+//   for (let i = 0; i < ingredients$.length; i++) {
+//       let indexOfpounds= ingredients$[i].indexOf('pounds');
+//       let indexOfgallons= ingredients$[i].indexOf('gallons');
+//       let indexOfsized= ingredients$[i].indexOf('medium-sized');
+//     if(ingredients$[i])/////////////////////
+//     itemName=item.slice(2,4);
+//     result.push(itemName);
+//     console.log('rr',result);
+//   }
  
-  console.log('return',result)
-  return result;
+//   console.log('return',result)
+//   return result;
 
-};
+// };
 // listFoods(gruffaloCrumble);
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -157,9 +160,20 @@ For example:
   console.log(integers) will print [1, 3, 5]
 ------------------------------------------------------------------------------------------------ */
 
+
 const removeEvenValues = (arr) => {
   // Solution code here...
+  let oddNum = [];
+  arr.forEach(no$ => {
+      if (no$ % 2 !== 0) {
+        oddNum.push(no$);
+      }
+  });
+  return oddNum;
 };
+// x=[1, 2, 3, 4, 5, 6];
+// removeEvenValues(x)
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 7
