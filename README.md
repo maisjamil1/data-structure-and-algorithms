@@ -1,3 +1,6 @@
 # data-structure-and-algorithms
 https://www.w3schools.com/jsref/jsref_foreach.asp
-for challenge4
+in challenge4 I asked a friend about two of them
+
+npm test -- challenges-02.test.js
+npm test -- challenges-04.test.js

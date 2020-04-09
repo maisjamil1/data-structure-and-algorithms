@@ -1,4 +1,33 @@
 'use strict';
+// . — (period) Matches any single character, except for line breaks.
+// * — Matches the preceding expression 0 or more times.
+// + — Matches the preceding expression 1 or more times.
+// ? — Preceding expression is optional (Matches 0 or 1 times).
+// ^ — Matches the beginning of the string.
+// $ — Matches the end of the string.
+// Character groups
+// \d — Matches any single digit character.
+// \w — Matches any word character (alphanumeric & underscore).
+// [XYZ] — Character Set: Matches any single character from the character within the brackets. You can also do a range such as [A-Z]
+// [XYZ]+ — Matches one or more of any of the characters in the set.
+// [^A-Z] — Inside a character set, the ^ is used for negation. In this example, match anything that is NOT an uppercase letter.
+// Flags:
+// g — Global search
+// i — case insensitive search
+
+// +: one or more (1+), e.g., [0-9]+ matches one or more digits such as '123', '000'.
+// *: zero or more (0+), e.g., [0-9]* matches zero or more digits. It accepts all those in [0-9]+ plus the empty string.
+// ?: zero or one (optional), e.g., [+-]? matches an optional "+", "-", or an empty string.
+// {m,n}: m to n (both inclusive)
+// {m}: exactly m times
+// {m,}: m or more (m+)
+
+// . (dot): ANY ONE character except newline. Same as [^\n]
+// \d, \D: ANY ONE digit/non-digit character. Digits are [0-9]
+// \w, \W: ANY ONE word/non-word character. For ASCII, word characters are [a-zA-Z0-9_]
+// \s, \S: ANY ONE space/non-space character. For ASCII, whitespace characters are [ \n\r\t\f]
+
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 1
@@ -27,10 +56,7 @@ Return an array containing all the matches.
 ------------------------------------------------------------------------------------------------ */
 
 const isCapitalized = (str) => {
-  // Solution code here...
-  let Capital=/[A-Z]\w/g;
-  let array$=str.match(Capital);
-  return array$;
+  return str.match(/[A-Z][A-z]+/g) || [];
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -39,14 +65,19 @@ CHALLENGE 3
 Write a function named citiesAtoJ that takes in an array of city names and uses a regular expression pattern to return a new array containing any cities that begin with the letters A through J, inclusive.
 ------------------------------------------------------------------------------------------------ */
 // https://www.youtube.com/watch?v=b46tXAPFayY&list=PLDoPjvoNmBAw6p0z0Ek0OjPzeXoqlFlCh&index=56
+
 const citiesAtoJ = (arr) => {
   // Solution code here...
-  const regEx = /[A-J]/gi;
-  const cities = [];
-  arr.forEach(city => {
-    if(regEx.test(city)) cities.push(city);
+  let Capital=/^[A-J]/g;
+  let words = []
+  arr.forEach(e => {
+    let te = e.match(Capital)
+    if(te) {
+      let word = e.match(/[A-z]+/)[0]
+      words.push(word)
+    }
   })
-  return cities;
+  return words;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -62,8 +93,9 @@ Do not use the vertical bar (pipe) in your pattern.
 ------------------------------------------------------------------------------------------------ */
 
 const matchMonth = (input) => {
-  // Solution code here...
+  return input.toString().match(/^(October|Oct|october|oct)$/g)
 };
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
@@ -76,7 +108,7 @@ The expected output of "Hello, and have a wonderful day!" is ["and ", "have ", "
 ------------------------------------------------------------------------------------------------ */
 
 const noPunctuation = str => {
-  // Solution code here...
+  return str.toString().match(/[A-z0-9]+\s/ig)
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -92,7 +124,7 @@ For example, 'Welcome to Code 301!' will return 'W_lc_m_ t_ C_d_ 301!'.
 ------------------------------------------------------------------------------------------------ */
 
 let hangman = (str) => {
-  // Solution code here...
+  return str.toString().replace(/[a]|[e]|[i]|[o]|[u]/ig, "_")
 };
 
 /* ------------------------------------------------------------------------------------------------
