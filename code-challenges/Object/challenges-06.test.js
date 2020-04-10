@@ -100,9 +100,14 @@ hasChildrenValues(characters, 'Sansa') will return false
 ------------------------------------------------------------------------------------------------ */
 
 const hasChildrenValues = (arr, character) => {
-  // Solution code here...
-
-};
+  for(let i=0 ;i<arr.length;i++){
+    if(arr[i].name === character){
+    if(arr[i].children !=null){
+        return true ;
+    }else{
+        return false;
+    }}}
+  };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 4
@@ -111,20 +116,42 @@ Write a function named hasChildrenEntries that is similar to your hasChildrenVal
 
 The input and output of this function are the same as the input and output from challenge 3.
 ------------------------------------------------------------------------------------------------ */
-
-const hasChildrenEntries = (arr, character) => {
-  // Solution code here...
-};
+  const hasChildrenEntries = (arr, character) => {
+    for(let i=0 ;i<arr.length;i++){
+      if(arr[i].name === character){
+      if(arr[i].children !=null){
+          return true ;
+      }else{
+          return false;
+      }}}
+    };
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 5
 
 Write a function named totalCharacters that takes in an array and returns the number of characters in the array.
 ------------------------------------------------------------------------------------------------ */
+// const totalCharacters = (arr) => {
+//   let counter = 0;
+//   for(let i=0 ;i<=arr.length;i++){
+// let OBJ =arr[i];
+// Object.values(OBJ).forEach(value => {
+//   if (value)
+//       counter++;});
+// } return counter; 
+// };
 
 const totalCharacters = (arr) => {
-  // Solution code here...
+  let counter = 0;
+  arr.forEach(obj => {
+      Object.values(obj).forEach(val => {
+          if (val)
+              counter++;
+      });});
+  return counter;
 };
+
+
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6 - Stretch Goal
