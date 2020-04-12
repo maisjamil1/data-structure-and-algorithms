@@ -11,7 +11,13 @@ For example, twoToThe([1,2,3]) returns [2,4,8] because 2 ^ 1 = 2, 2 ^ 2 = 4, and
 ------------------------------------------------------------------------------------------------ */
 
 const forLoopTwoToThe = (arr) => {
-  // Solution code here...
+  let arr2$ = [];
+
+  for (let i = 0; i < arr.length; i++) {
+      arr2$.push(Math.pow(2, arr[i]));
+
+  }
+  return arr2$;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -21,7 +27,13 @@ Write a function named forEachTwoToThe that produces the same output as your for
 ------------------------------------------------------------------------------------------------ */
 
 const forEachTwoToThe = (arr) => {
-  // Solution code here...
+  let arr2$ = [];
+
+  arr.forEach(ele => {
+    arr2$.push(Math.pow(2, ele));
+
+  });
+  return arr2$;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -31,7 +43,12 @@ Write a function named mapTwoToThe that produces the same output as your forLoop
 ------------------------------------------------------------------------------------------------ */
 
 const mapTwoToThe = (arr) => {
-  // Solution code here...
+
+  let arr2$ = arr.map((ele) => {
+    return Math.pow(2, ele)
+
+})
+return arr2$;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -45,7 +62,9 @@ For example: charCode(['h','i']) returns [104, 105].
 ------------------------------------------------------------------------------------------------ */
 
 const charCode = (arr) => {
-  // Solution code here...
+  let charCodeArr= arr.map(ele => ele.charCodeAt());
+  return charCodeArr;
+ 
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -59,7 +78,7 @@ For example: evenOdd([1,2,3]) returns ['odd','even','odd'].
 ------------------------------------------------------------------------------------------------ */
 
 const evenOdd = (arr) => {
-  // Solution code here...
+
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -105,7 +124,11 @@ const snorlaxAbilities = {
 };
 
 const extractAbilities = (arr) => {
-  // Solution code here...
+  let abilitiesArr = arr.map(ele=> {
+    return ele.ability.name;
+})
+
+return abilitiesArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
