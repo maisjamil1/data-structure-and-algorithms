@@ -59,6 +59,7 @@ CHALLENGE 5
 Write a function named allHappy that takes in an array of strings and returns a Boolean indicating whether all those strings contain ":)".
 ------------------------------------------------------------------------------------------------ */
 
+
 // [12, 54, 18, 130, 44].every(x => x >= 10); // true​
 const allHappy = (arr) => {
     return arr.every(ele=>{ return ele.includes(':)')})
@@ -71,7 +72,8 @@ Write a function named findAnything that takes in an array of strings, along wit
 ------------------------------------------------------------------------------------------------ */
 
 const findAnything = (arr, target) => {
-  // Solution code here...
+    let finalArr = arr.filter(ele =>{ return ele.includes(target);});
+      return finalArr;
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -81,7 +83,12 @@ Write a function named findEvery that takes in an array of strings, along with a
 ------------------------------------------------------------------------------------------------ */
 
 const findEvery = (arr, target) => {
-  // Solution code here...
+    let finalArr = arr.filter(ele =>{return ele.includes(target); });
+      if(finalArr.length === arr.length){
+        return true;
+      }
+      else {
+        return false;}
 };
 
 /* ------------------------------------------------------------------------------------------------
@@ -102,7 +109,6 @@ const unenrollBrook = (arr) => {
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 9 - Stretch Goal
-
 Write a function named sortByDay that takes in an array of strings, each of which represents an event's day and time.
 
 Return a two-dimensional array that organizes those strings based on the day on which they occur. For example, all events on Monday are in the first array, all events on Tuesday are in the second array, etc.
