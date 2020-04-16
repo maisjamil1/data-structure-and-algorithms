@@ -15,8 +15,7 @@ const count = (target, input) => {
         input.forEach(ele => {
           sum += ele.reduce((acc,val) => {
             if (val === target) acc++;
-            return acc;
-          }, 0);
+            return acc;}, 0);
         });
         return sum;
 };
@@ -38,11 +37,7 @@ const totalSum = (input) => {
        sum += ele.reduce((acc,val)=>{
                 acc+=val;
                 return acc;
-            },0);
-
-        });
-
-        
+            },0);});   
     return sum;
 };
 
