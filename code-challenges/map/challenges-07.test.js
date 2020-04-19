@@ -78,8 +78,12 @@ For example: evenOdd([1,2,3]) returns ['odd','even','odd'].
 ------------------------------------------------------------------------------------------------ */
 
 const evenOdd = (arr) => {
-
-};
+  let ARR = arr.map(ele=>{
+    if(ele%2 === 0){
+        return 'even';}
+    else if(ele%2===1){return 'odd'}
+    else{return "N/A"}})
+return ARR;};
 
 /* ------------------------------------------------------------------------------------------------
 CHALLENGE 6
